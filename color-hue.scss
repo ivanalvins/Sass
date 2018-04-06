@@ -1,0 +1,21 @@
+@import 'functions';
+@mixin image-transparent-cover() {
+    $color: (145, 14, 5);
+    $filter: brightness(50%) sepia(1) hue-rotate(calculateRotation($color...)) saturate(calculateSaturationFilter($color...)) brightness(calculateBrightnessFilter($color...));
+    -webkit-filter: $filter;
+    filter: $filter;
+}
+.picture-container {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    picture {
+        margin: 0 auto;
+        img {
+            max-width: 100%;
+            &:hover {
+                @include image-transparent-cover();
+            }
+        }
+    }
+}

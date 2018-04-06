@@ -1,0 +1,25 @@
+@mixin calculate-column($numberOfColumns) {
+    @for $colNumber from 1 through $numberOfColumns {
+        .col-#{$colNumber} {
+            float: left;
+            width: 100% * ($colNumber / $numberOfColumns);
+        }
+    }
+}
+.container {
+    padding-left: 1em;
+    padding-right: 1em;
+    div:nth-of-type(2n + 1) {
+      background-color: lighten(yellow, 25%);
+    }
+  
+    div:nth-of-type(2n) {
+      background-color: lighten(cyan, 25%);
+    }
+    @include calculate-column(6);
+}
+  div[class^=col-] {
+      border: 0.3em solid black;
+      box-sizing: border-box;
+      height: 12em;
+}
